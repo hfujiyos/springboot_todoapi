@@ -12,7 +12,7 @@
   spring initializr:
     Project: Gradle - Groovy
     Language: Java
-    Spring Boot: 3.3.2
+    Spring Boot: 3.0.4
   APIサーバー: OpenAPI 3.0.0
   APIクライアント: Postman 11.8.1
   ソース管理: GitHub
@@ -453,6 +453,11 @@
     git init                 # Gitリポジトリを初期化
     ```
 
+  * ローカルリポジトリのブランチ名を main に変更
+    ```sh
+    git branch -m master main
+    ```
+
   * GitHubでリポジトリを作成
     * GitHubにログインします。
     * 右上の「New repository」ボタンをクリックします。
@@ -466,7 +471,7 @@
     * GitHubで作成したリポジトリにプロジェクトをプッシュするために、リモートリポジトリのURLをGitに設定します。
     * GitHubのリポジトリ作成ページで表示されるリモートリポジトリのURLを使います。例えば、次のようなコマンドでリモートを追加します。
       ```sh
-      git remote add origin https://github.com/your-username/springboot_todoapi.git
+      git remote add origin git@github.com:your-username/springboot_todoapi.git
       ```
 
   * ファイルのステージングとコミット
@@ -474,11 +479,12 @@
     ```sh
     git add .  # すべてのファイルをステージング
     git commit -m "Initial commit"  # 初回のコミットメッセージを付けてコミット
+    ```
 
   * GitHubに初回プッシュ
   コミットが完了したら、GitHubにプッシュします。
     ```sh
-    git push -u origin main  # 初回プッシュでmasterブランチを指定
+    git push -u origin main  # 初回プッシュでmainブランチを指定
     ```
 
 ## 参考文献
