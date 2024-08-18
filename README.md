@@ -3,25 +3,29 @@
 ## はじめに
 
 * バージョン構成
-  JAVA: openjdk@17
-  環境パス： openjdk@17
-  エディタ: IntelliJ IDEA Community Edition
-  拡張機能: 
-    OpenAPI (Swagger) Editor
-    Japan Language Pack / 日本語パック
-  spring initializr:
-    Project: Gradle - Groovy
-    Language: Java
-    Spring Boot: 3.0.4
-  APIサーバー: OpenAPI 3.0.0
-  APIクライアント: Postman 11.8.1
-  ソース管理: GitHub
+  * JAVA: openjdk@17
+  * 環境パス： openjdk@17
+  * エディタ: IntelliJ IDEA Community Edition
+  * 拡張機能: 
+    * OpenAPI (Swagger) Editor
+    * Japan Language Pack / 日本語パック
+  * spring initializr:
+    * Project: Gradle - Groovy
+    * Language: Java
+    * Spring Boot: 3.0.4
+  * develop tech:
+    * MyBatis
+    * H2 Database
+  * APIサーバー: OpenAPI 3.0.0
+  * APIクライアント: Postman 11.8.1
+  * ソース管理: GitHub
 
 ## Mac-IntelliJ IDEAショートカット
-* オブジェクト検索　　　｜　shift + command + P
-* クラス参照　　　　　　｜　command + B　｜　マウスオーバー
-* メソッドオーバーライド｜　control + O　｜　[コード]-[メソッドのオーバーライド]
-* デバッグ実行　　　　　｜　control + shift + D
+* オブジェクト検索　　　｜　Double shift　　　｜　shiftキー連続2回押下
+* クラス参照　　　　　　｜　command + B　　｜　マウスオーバー
+* メソッドオーバーライド｜　　　　　　　　　 ｜　[コード]-[メソッドのオーバーライド]
+* デバッグ　　　　　　　｜　F5　　　　　　　｜　🪲️　※ブレークポイント利用
+* 実行　　　　　　　　　｜　control + F5　　　｜　▶️
 
 ## 成果物定義
 * todoapi/build.gradle
@@ -489,3 +493,4 @@
 
 ## 参考文献
   * https://github.com/poco-tech/poco-tech-spring-boot-web-api/tree/main
+  * https://docs.google.com/presentation/d/1-x6QdqvkLDc4SWyz38Y_R6uUWZNFsSZswKQYNewmYpI/edit#slide=id.gfa2fdee654_0_0
