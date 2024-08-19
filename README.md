@@ -1,4 +1,4 @@
-# togo
+# todoapi
 
 ## はじめに
 
@@ -30,7 +30,7 @@
 * 実行　　　　　　　　　｜　control + F5　　　｜　▶️
 
 ## 成果物定義
-* togo/build.gradle
+* todoapi/build.gradle
   ```java
   plugins {
     id 'java'
@@ -88,8 +88,8 @@
     generatorName = "spring"
     inputSpec = "$rootDir/src/main/resources/api-schema.yaml".toString()
     outputDir = "$buildDir/spring".toString()
-    apiPackage = "com.example.togo.controller"
-    modelPackage = "com.example.togo.model"
+    apiPackage = "com.example.todoapi.controller"
+    modelPackage = "com.example.todoapi.model"
     configOptions = [
         interfaceOnly: "true",
         useSpringBoot3: "true"
@@ -104,7 +104,7 @@
   sourceSets.main.java.srcDir "$buildDir/spring/src/main/java" 
   ```
 
-* togo/src/main/resources/schema.yaml
+* todoapi/src/main/resources/schema.yaml
   ```yaml
   openapi: "3.0.0"
   info:
@@ -119,9 +119,9 @@
             description: OK
   ```
 
-* togo/src/main/java/com.example.togo/controller/HealthController
+* todoapi/src/main/java/com.example.todoapi/controller/HealthController
   ```java
-  package com.example.togo.controller;
+  package com.example.todoapi.controller;
 
   import org.springframework.http.ResponseEntity;
   import org.springframework.web.bind.annotation.RestController;
@@ -136,7 +136,7 @@
   }
   ```
 
-* togo/.gitignore
+* todoapi/.gitignore
   ```java
   HELP.md
   .gradle
@@ -249,10 +249,10 @@
     * Spring Boot   3.3.2
     * Project Metadata
         * Group         com.example
-        * Artifact      togo
-        * Name          togo
-        * Description   togo
-        * Package name  com.example.togo
+        * Artifact      todoapi
+        * Name          todoapi
+        * Description   todoapi
+        * Package name  com.example.todoapi
         * Packaging     Jar
         * Java          17
     * Dependencies
@@ -268,21 +268,21 @@
     ```terminal
     # 開発ディレクトリに移動
     cd Development
-    mkdir togo        # togoディレクトリが無ければ作成
-    cd togo           # togoディレクトリに移動
+    mkdir todoapi        # todoapiディレクトリが無ければ作成
+    cd todoapi           # todoapiディレクトリに移動
     ```
 
   * IntelliJ IDEAでプロジェクトを開く
     * spring initializrで作成したSpringの雛形zipを展開してプロジェクトフォルダに設置
-    * IDEAでtogoプロジェクトのbuild.gradleを開いて開発ディレクトリを読込
+    * IDEAでtodoapiプロジェクトのbuild.gradleを開いて開発ディレクトリを読込
 
   * IntelliJ IDEAでプロジェクトのSDKをopenjdk@17に合わせる
     * [ファイル] - [プロジェクト構造]をクリック
     * [プロジェクト設定] - [プロジェクト] - [SDK:]が「homebrew-17」になっていることを確認
 
   * IntelliJ IDEAで初回起動
-    * IDEAの左上側にあるプロジェクトツリーにて、[togo] - [src] - [main] - [java] - [...] - [togoApplication]をダブルクリック
-    * [▶️]をクリックして、[togoApplication]を実行します。
+    * IDEAの左上側にあるプロジェクトツリーにて、[todoapi] - [src] - [main] - [java] - [...] - [todoapiApplication]をダブルクリック
+    * [▶️]をクリックして、[todoapiApplication]を実行します。
     * ブラウザで、 http://localhost:8080 を開いて初期画面を確認します
 
 7. OpenAPI（スキーマ駆動開発のAPI基本設計）
@@ -327,7 +327,7 @@
 
   * Gradleプロジェクト更新
     * IDEAの右上側にある[Gradle] - [🔄]にてGradleプロジェクトを更新
-    * [Gradle] - [togo] - [Tasks] - [openapi tools] - [openApiGenerators]をダブルクリックでタスク実行して、ジェネレーター一覧をターミナルで確認することもできます
+    * [Gradle] - [todoapi] - [Tasks] - [openapi tools] - [openApiGenerators]をダブルクリックでタスク実行して、ジェネレーター一覧をターミナルで確認することもできます
 
   * 【参考文献】OpenAPI Generator (Gradle Plugin)
   APIスキーマからJAVA側のもろもろを生成するジェネレーター
@@ -346,8 +346,8 @@
 
   * Gradleプロジェクト更新
     * IDEAの右上側にある[🔄]（Gradleの変更を読み込む）（Load Gradle Changes）にて設定を反映
-      * [Gradle] - [togo] - [Tasks] - [others] - [buildApiDoc]をダブルクリックでタスク実行してAPI設計書のHTMLが生成されます
-      * IDEAの左上側にあるプロジェクトツリーにて、[togo] - [build] - [apidoc] - [index.html]を右クリックして[開く] - [ブラウザ] - [Chrome]をクリックして、Swagger-UIを確認できるようになります
+      * [Gradle] - [todoapi] - [Tasks] - [others] - [buildApiDoc]をダブルクリックでタスク実行してAPI設計書のHTMLが生成されます
+      * IDEAの左上側にあるプロジェクトツリーにて、[todoapi] - [build] - [apidoc] - [index.html]を右クリックして[開く] - [ブラウザ] - [Chrome]をクリックして、Swagger-UIを確認できるようになります
 
   * 【参考文献】OpenAPI GitHub（タスク複数設定コード）
   https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-gradle-plugin#generate-multiple-sources
@@ -363,8 +363,8 @@
       generatorName = "spring"
       inputSpec = "$rootDir/src/main/resources/api-schema.yaml".toString()
       outputDir = "$buildDir/spring".toString()
-      apiPackage = "com.example.togo.controller"
-      modelPackage = "com.example.togo.model"
+      apiPackage = "com.example.todoapi.controller"
+      modelPackage = "com.example.todoapi.model"
       configOptions = [
           interfaceOnly: "true",
           useSpringBoot3: "true"
@@ -374,8 +374,8 @@
 
   * Gradleプロジェクト更新
     * IDEAの右上側にある[🔄]（Gradleの変更を読み込む）（Load Gradle Changes）にて設定を反映
-      * [Gradle] - [togo] - [Tasks] - [others] - [buildSpringServer]をダブルクリックでタスク実行してSpringコードが生成されます
-      * IDEAの左上側にあるプロジェクトツリーにて、[togo] - [build] - [spring] - [src]にて、自動生成されたSpringコードを確認できます。後述の自動インポートの設定でこのjavaコードを利用できるようになります
+      * [Gradle] - [todoapi] - [Tasks] - [others] - [buildSpringServer]をダブルクリックでタスク実行してSpringコードが生成されます
+      * IDEAの左上側にあるプロジェクトツリーにて、[todoapi] - [build] - [spring] - [src]にて、自動生成されたSpringコードを確認できます。後述の自動インポートの設定でこのjavaコードを利用できるようになります
 
   * 【参考文献】OpenAPI GitHub（タスク複数設定コード）
   https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-gradle-plugin#generate-multiple-sources
@@ -392,17 +392,17 @@
 
   * Gradleプロジェクト更新
     * IDEAの右上側にある[🔄]（Gradleの変更を読み込む）（Load Gradle Changes）にて設定を反映
-      * [Gradle] - [togo] - [Tasks] - [others] - [compile.Java]をダブルクリックでタスク実行を確認すると、Springコード生成をしてからJAVAコンパイルが走ることを確認できます
-      * これは、IDEAの左上側にあるプロジェクトツリーにて、[togo] - [build] - [spring]を削除しても、「compile.Java」のタスクを実行すると最初にSrpingコード生成をして[spring]がビルドされからJAVAコンパイルが実行されるようになります
+      * [Gradle] - [todoapi] - [Tasks] - [others] - [compile.Java]をダブルクリックでタスク実行を確認すると、Springコード生成をしてからJAVAコンパイルが走ることを確認できます
+      * これは、IDEAの左上側にあるプロジェクトツリーにて、[todoapi] - [build] - [spring]を削除しても、「compile.Java」のタスクを実行すると最初にSrpingコード生成をして[spring]がビルドされからJAVAコンパイルが実行されるようになります
 
   * 【参考文献】OpenAPI GitHub（Gradleタスク依存関係設定コード）
   https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-gradle-plugin#tasks
 
 12. Spring自動生成コードのインポート設定
 
-  * IDEAの左上側にあるプロジェクトツリーにて、[togo] - [src] - [main] - [java] - [com.example.togo]を右クリックして[新規] - [Java クラス]をクリックして、「controller.HealthController」を作成
+  * IDEAの左上側にあるプロジェクトツリーにて、[todoapi] - [src] - [main] - [java] - [com.example.todoapi]を右クリックして[新規] - [Java クラス]をクリックして、「controller.HealthController」を作成
     ```java
-    package com.example.togo.controller;
+    package com.example.todoapi.controller;
 
     import org.springframework.http.ResponseEntity;
     import org.springframework.web.bind.annotation.RestController;
@@ -424,7 +424,7 @@
 
   * Gradleプロジェクト更新
     * IDEAの右上側にある[🔄]（Gradleの変更を読み込む）（Load Gradle Changes）にて設定を反映
-      * これは、IDEAの左上側にあるプロジェクトツリーにて、[togo] - [build] - [spring]に自動生成したSpringコードのクラスを、本プロジェクトで利用できるようになります
+      * これは、IDEAの左上側にあるプロジェクトツリーにて、[todoapi] - [build] - [spring]に自動生成したSpringコードのクラスを、本プロジェクトで利用できるようになります
 
 13. ライブラリ導入
 
@@ -445,8 +445,8 @@
     ```
 
   * IntelliJ IDEAで動作起動
-    * IDEAの左上側にあるプロジェクトツリーにて、[togo] - [src] - [main] - [java] - [...] - [togoApplication]をダブルクリック
-    * [▶️]をクリックして、[togoApplication]を実行します。
+    * IDEAの左上側にあるプロジェクトツリーにて、[todoapi] - [src] - [main] - [java] - [...] - [todoapiApplication]をダブルクリック
+    * [▶️]をクリックして、[todoapiApplication]を実行します。
     * ブラウザで、 http://localhost:8080/health を開いて白頁が表示されることを確認します
 
 14. Postmanで疎通確認
@@ -462,12 +462,12 @@
 15. Git導入
 
   * プロジェクトの.gitignoreにGit管理の除外ファイル指定を確認
-    * togo/.gitignore
+    * todoapi/.gitignore
 
   * Gitの初期化
     まず、プロジェクトディレクトリに移動し、Gitを初期化します。
     ```sh
-    cd /Development/togo  # プロジェクトディレクトリに移動
+    cd /Development/todoapi  # プロジェクトディレクトリに移動
     git init                 # Gitリポジトリを初期化
     ```
 
@@ -480,7 +480,7 @@
     * GitHubにログインします。
     * 右上の「New repository」ボタンをクリックします。
     * 以下の情報を入力します。
-      * Repository name: プロジェクト名（例: springboot_togo）
+      * Repository name: プロジェクト名（例: springboot_todoapi）
       * Description: オプションでプロジェクトの説明を入力します。
       * Visibility: 「Public」または「Private」を選択します。
       * 「Create repository」ボタンをクリックしてリポジトリを作成します。
@@ -489,8 +489,8 @@
     * GitHubで作成したリポジトリにプロジェクトをプッシュするために、リモートリポジトリのURLをGitに設定します。
     * GitHubのリポジトリ作成ページで表示されるリモートリポジトリのURLを使います。例えば、次のようなコマンドでリモートを追加します。
       ```sh
-      git remote add origin git@github.com:hfujiyos/springboot_togo.git
-      git remote add origin https://github.com/hfujiyos/springboot_togo.git
+      git remote add origin git@github.com:hfujiyos/springboot_todoapi.git
+      git remote add origin https://github.com/hfujiyos/springboot_todoapi.git
       ```
 
   * ファイルのステージングとコミット
